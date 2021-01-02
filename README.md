@@ -12,7 +12,6 @@ subplot(1,2,2), imshow(B); % Display result image B
 -	Trừ pixel
 
 ####MATLAB code
-
 ```
 A=imread('cola1.png');	% Read in 1st image 
 B=imread('cola2.png'); % Read in 2nd image
