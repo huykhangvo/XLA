@@ -88,8 +88,6 @@ end subplot(2,2,4); imshow(A);
 title('Ket qua dung code loc Trung vi');
 ```
 ### 5. Lọc Rank
-`Chưa có ai có gửi về zalo 0794943324`
-### 6. Lọc Thông Cao
 ```
 I=imread('eight.tif'); % Read in image
 Isp = imnoise(I,'salt & pepper'); % add 3% (0.03) salt and pepper noise
@@ -103,6 +101,8 @@ subplot(1,3,2), imshow(Isp_m); % Display result image title('loc salt and pepper
 subplot(1,3,3), imshow(Ig_m); % Display result image title('loc gaussian');
 
 ```
+### 6. Lọc Thông Cao
+
 ### 7. Lọc Thông Thấp
 ### 8. Lọc Max/Min
 ### 9. Chia ngưỡng ảnh
