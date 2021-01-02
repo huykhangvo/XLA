@@ -4,11 +4,15 @@
 -	Cộng pixel
 
 ```
-A=imread('cameraman.tif'); % Read in image 
-subplot(1,2,1), imshow(A); % Display image
-B = imadd(A, 100); % Add 100 pixel values to image A 
-subplot(1,2,2), imshow(B); % Display result image B
+A=imread('cameraman.tif');
+subplot(1,2,1), imshow(A);
+B = imadd(A, 100);
+subplot(1,2,2), imshow(B);
 ```
+### Kết Quả
+![](ss)
+> Chạy được không nếu không tự fix nhé :)
+
 -	Trừ pixel
 
 ```
