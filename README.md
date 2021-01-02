@@ -62,7 +62,7 @@ imshow(K);
 title('Ket qua dung ham loc trung binh');
 ```
 ### Kết Quả
-![](ss)
+![](https://imgur.com/GV4s5MV.png)
 ### 4. Lọc trung vị
 ```
 A = imread('lena.png') ; 
@@ -79,7 +79,7 @@ imshow(K);
 title('Ket qua dung ham loc trung vi');
 ```
 ### Kết Quả
-![](ss)
+![](https://imgur.com/TIRRs4N.png)
 ### 5. Lọc Rank
 ```
 I=imread('eight.tif');
@@ -99,7 +99,7 @@ imshow(Ig_m); % Display result image
 title('loc gaussian');
 ```
 ### Kết Quả
-![](ss)
+![](https://imgur.com/42WJn27.png)
 ### 6. Lọc Thông Cao(High Pass Filtering)
 ```
 clc;
@@ -125,6 +125,8 @@ subplot(3,3,3)
 imshow(uint8(r));
 title('Low Pass Filtered Image')
 ```
+### Kết Quả
+![](https://i.imgur.com/zxSGIkv.png)
 ### 7. Lọc Thông Thấp(Low Pass Filtering)
 ```
 clc;
@@ -148,6 +150,8 @@ subplot(3,3,3)
 imshow(uint8(r));
 title('High Pass Filtered Image')
 ```
+### Kết Quả
+![](https://imgur.com/ZZlSz28.png)
 ### 8. Lọc Max/Min
 `Chưa có ai có gửi về zalo 0794943324`
 ### 9. Chia ngưỡng ảnh
@@ -165,6 +169,8 @@ figure
 imshow(I2);
 %imshow(I3);
 ```
+### Kết Quả
+![](https://imgur.com/z4vEQfo.png)
 ### 11. Phát hiện biên ảnh
 ```
 I = imread('lena.png'); 
@@ -182,6 +188,8 @@ subplot(2,2,4);
 imshow(C);
 title('Tim bien voi bo loc Canny');
 ```
+### Kết Quả
+![](https://imgur.com/D4FnKiy.png)
 ### 12. Chuyển RGB -> HSI
 ```
 rgb=imread('lena.png'); 
@@ -208,6 +216,8 @@ subplot(1,2,2);
 imshow(hsi);
 title('HSI');
 ```
+### Kết Quả
+![](https://imgur.com/ARsp8AQ.png)
 ### 13. Chuyển RGB -> CMY
 ```
 rgb=imread('lena.png'); % doc anh 
@@ -226,5 +236,7 @@ subplot(1,2,2)
 imshow(CMY);
 title('Ket qua dung code');
 ```
+### Kết Quả
+![](https://imgur.com/uvzQorX.png)
 ### 15. Chuyển CMY -> RGB
 `Chưa có ai có gửi về zalo 0794943324`
