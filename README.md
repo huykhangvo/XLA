@@ -168,20 +168,29 @@ title('Tim bien voi bo loc Sobel'); C = edge(I,'Canny');
 subplot(2,2,4); imshow(C);
 title('Tim bien voi bo loc Canny');
 ```
-### 12. Chuyển RGB -> HSI CMY
+### 12. Chuyển RGB -> HSI
+```
+rgb=imread('lena.png'); subplot(1,2,1); imshow(rgb);
+title('Anh goc'); rgb=im2double(rgb); r=rgb(:,:,1);
+g=rgb(:,:,2);
+b=rgb(:,:,3); num=0.5*((r-g)+(r-b));
+den=sqrt((r-g).^2+(r-b).*(g-b)); theta=acos((num./(den+eps))); H=theta;
+H(b>g)=2*pi-H(b>g); H=H/(2*pi); num=min(min(r,g),b); den=r+g+b; den(den==0)=eps;
+S=1-3.*num./den; H(S==0)=0;
+I=(r+g+b)/3; hsi=cat(3,H,S,I);
+subplot(1,2,2); imshow(hsi);
+```
 ### 13. Chuyển RGB -> CMY
 ```
-rgb=imread('lena.png'); % doc anh 
-rgb=im2double(rgb);
+rgb=imread('lena.png'); % doc anh rgb=im2double(rgb);
 r=rgb(:,:,1);
 g=rgb(:,:,2);
 b=rgb(:,:,3); C=1-r;
 M=1-g;
 Y=1-b; CMY=cat(3,C,M,Y);
-H=imcomplement(rgb); % kiểm tra bằng hàm 
-subplot(1,2,1)
+H=imcomplement(rgb); % kiểm tra bằng hàm subplot(1,2,1)
 imshow(H);
 title('Ket qua dung ham'); subplot(1,2,2) imshow(CMY);
 title('Ket qua dung code');
 ```
-### 14. Chuyển CMY -> RGB
+### 15. Chuyển CMY -> RGB
