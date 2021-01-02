@@ -2,7 +2,7 @@
 
 ### 1. Cộng/Trừ Pixel Ảnh
 -	Cộng pixel
-####MATLAB code
+
 ```
 A=imread('cameraman.tif'); % Read in image 
 subplot(1,2,1), imshow(A); % Display image
@@ -11,7 +11,6 @@ subplot(1,2,2), imshow(B); % Display result image B
 ```
 -	Trừ pixel
 
-####MATLAB code
 ```
 A=imread('cola1.png');	% Read in 1st image 
 B=imread('cola2.png'); % Read in 2nd image
