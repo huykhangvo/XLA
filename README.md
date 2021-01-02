@@ -237,6 +237,6 @@ imshow(CMY);
 title('Ket qua dung code');
 ```
 ### Kết Quả
-![](https://imgur.com/uvzQorX.png)
+![](https://imgur.com/ybpx6vL.png)
 ### 15. Chuyển CMY -> RGB
 `Chưa có ai có gửi về zalo 0794943324`
