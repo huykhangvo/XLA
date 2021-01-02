@@ -11,7 +11,7 @@ subplot(1,2,2), imshow(B);
 ```
 ### Kết Quả
 ![](https://i.imgur.com/A0fRyxa.png)
-> Chạy được không nếu không tự fix nhé :)
+> Lưu ý: Nằm cùng vị trí file code :)
 
 -	Trừ pixel
 
