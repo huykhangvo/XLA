@@ -50,8 +50,6 @@ Med(3) = A(i-1,j+1);
 Med(4) = A(i,j-1);
 Med(5) = A(i,j);
 Med(6) = A(i,j+1);
-```
-```
 Med(7) = A(i+1,j-1);
 Med(8) = A(i+1,j);
 Med(9) = A(i+1,j+1);
