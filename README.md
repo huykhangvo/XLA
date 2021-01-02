@@ -34,18 +34,3 @@ subplot(1,3,3), imshow(Output); % Display result title('anh output');
 ### 12. Chuyển RGB -> HSI CMY
 ### 13. Chuyển RGB -> CMY
 ### 14. Chuyển CMY -> RGB
-####HTML code
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <mate charest="utf-8" />
-        <title>Hello world!</title>
-    </head>
-    <body>
-        <h1>Hello world!</h1>
-    </body>
-</html>
-```
-
