@@ -29,11 +29,13 @@ subplot(1,3,3), imshow(Output); % Display result title('anh output');
 -	Ảnh Xám
 
 ```
-RGB=imread('lena.png'); % Doc anh R=RGB(:,:,1);
+RGB=imread('lena.png'); % Doc anh 
+R=RGB(:,:,1);
 G=RGB(:,:,2);
 B=RGB(:,:,3);
 % CT chuyen anh sang anh xam 
-GRAY=0.299*R + 0.587*G + 0.114*B GRAY=0.299.*R + 0.587.*G + 0.114.*B;
+GRAY=0.299*R + 0.587*G + 0.114*B 
+GRAY=0.299.*R + 0.587.*G + 0.114.*B;
 imshow(GRAY);
 ```
 -	Ảnh Âm Bản
