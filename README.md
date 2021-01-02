@@ -127,24 +127,22 @@ title('Low Pass Filtered Image')
 ```
 ### 7. Lọc Thông Thấp(Low Pass Filtering)
 ```
-%High pass Filtering
 clc;
-clear all; 
-a=imread('pout.tif'); 
+clear all; a=imread('pout.tif'); 
 b=imnoise(a,'gaussian'); 
-a=double(a); b=double(b);
+a=double(a);
+b=double(b);
 w=[-1/9 -1/9 -1/9;-1/9 -1/9 8/9;-1/9 -1/9 -1/9];
-[m n]=size(b); 
-for i=2:1:m-1
-    for j=2:1:n-1
-        r(i,j)=b(i-1,j-1)*w(1)+b(i-1,j)*w(2)+ b(i-1,j+1)*w(3)+ b(i,j-1)*w(4)+b(i,j)*w(5)+ b(i,j+1)*w(6)+ b(i+1,j-1)*w(7)+ b(i+1,j)*w(8)+ b(i+1,j+1)*w(9) ;
-    end
+[m n]=size(b); for i=2:1:m-1
+for j=2:1:n-1
+r(i,j)=b(i-1,j-1)*w(1)+b(i-1,j)*w(2)+ b(i-1,j+1)*w(3)+ b(i,j-1)*w(4)+b(i,j)*w(5)+ b(i,j+1)*w(6)+ b(i+1,j-1)*w(7)+ b(i+1,j)*w(8)+ b(i+1,j+1)*w(9) ;
+end
 end
 subplot(3,3,1) 
 imshow(uint8(a));
 title('Original Image') 
 subplot(3,3,2) 
-mshow(uint8(b));
+imshow(uint8(b));
 title('Image with Gaussian Noise') 
 subplot(3,3,3)
 imshow(uint8(r));
@@ -157,54 +155,75 @@ title('High Pass Filtered Image')
 ### 10. Xói mòn ảnh
 ```
 clear
-
-I = imread('Đường Dẫn Hình Ảnh');
-
+I = imread('cameraman.jpg');
 k=ones(3,3);
 I2 = imerode(I,k);
-
 k = ones(3,3);
 I3 = imdilate(I,k);
-
 imshow(I);
 figure
 imshow(I2);
-
 %imshow(I3);
 ```
 ### 11. Phát hiện biên ảnh
 ```
-I = imread('lena.png'); I=rgb2gray(I); I=uint8(I); subplot(2,2,1); imshow(I);
+I = imread('lena.png'); 
+I=rgb2gray(I); 
+I=uint8(I); 
+subplot(2,2,1); 
+imshow(I);
 title('Anh goc');
 S = edge(I,'Sobel');
-subplot(2,2,3); imshow(S);
-title('Tim bien voi bo loc Sobel'); C = edge(I,'Canny');
-subplot(2,2,4); imshow(C);
+subplot(2,2,3); 
+imshow(S);
+title('Tim bien voi bo loc Sobel'); 
+C = edge(I,'Canny');
+subplot(2,2,4); 
+imshow(C);
 title('Tim bien voi bo loc Canny');
 ```
 ### 12. Chuyển RGB -> HSI
 ```
-rgb=imread('lena.png'); subplot(1,2,1); imshow(rgb);
-title('Anh goc'); rgb=im2double(rgb); r=rgb(:,:,1);
+rgb=imread('lena.png'); 
+subplot(1,2,1); 
+imshow(rgb);
+title('Anh goc RGB'); 
+rgb=im2double(rgb); 
+r=rgb(:,:,1);
 g=rgb(:,:,2);
-b=rgb(:,:,3); num=0.5*((r-g)+(r-b));
-den=sqrt((r-g).^2+(r-b).*(g-b)); theta=acos((num./(den+eps))); H=theta;
-H(b>g)=2*pi-H(b>g); H=H/(2*pi); num=min(min(r,g),b); den=r+g+b; den(den==0)=eps;
-S=1-3.*num./den; H(S==0)=0;
-I=(r+g+b)/3; hsi=cat(3,H,S,I);
-subplot(1,2,2); imshow(hsi);
+b=rgb(:,:,3); 
+num=0.5*((r-g)+(r-b));
+den=sqrt((r-g).^2+(r-b).*(g-b)); 
+theta=acos((num./(den+eps))); 
+H=theta;
+H(b>g)=2*pi-H(b>g); H=H/(2*pi); 
+num=min(min(r,g),b); 
+den=r+g+b; 
+den(den==0)=eps;
+S=1-3.*num./den; 
+H(S==0)=0;
+I=(r+g+b)/3; 
+hsi=cat(3,H,S,I);
+subplot(1,2,2); 
+imshow(hsi);
+title('HSI');
 ```
 ### 13. Chuyển RGB -> CMY
 ```
-rgb=imread('lena.png'); % doc anh rgb=im2double(rgb);
+rgb=imread('lena.png'); % doc anh 
+rgb=im2double(rgb);
 r=rgb(:,:,1);
 g=rgb(:,:,2);
-b=rgb(:,:,3); C=1-r;
+b=rgb(:,:,3); 
+C=1-r;
 M=1-g;
 Y=1-b; CMY=cat(3,C,M,Y);
-H=imcomplement(rgb); % kiểm tra bằng hàm subplot(1,2,1)
+H=imcomplement(rgb); % kiểm tra bằng hàm 
+subplot(1,2,1)
 imshow(H);
-title('Ket qua dung ham'); subplot(1,2,2) imshow(CMY);
+title('Ket qua dung ham'); 
+subplot(1,2,2) 
+imshow(CMY);
 title('Ket qua dung code');
 ```
 ### 15. Chuyển CMY -> RGB
