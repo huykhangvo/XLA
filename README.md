@@ -43,118 +43,110 @@ imshow(GRAY);
 ```
 ### Kết Quả
 ![](https://i.imgur.com/9nQMMNW.png)
--	Ảnh Âm Bản
+
+-	Âm Bản
 
 `Chưa có ai có gửi về zalo 0794943324`
 ### 3. Lọc trung bình (Code Tay)
 ```
-A = imread('noise-image.png') ; 
+A = imread('lena.png') ; 
 subplot(2,2,1);
 imshow(A); title('Anh goc'); 
 A = im2double(A); 
 [m n] = size(A); 
 Med = [];
-%/////////// 
 H=fspecial('average'); 
 K=imfilter(A,H,'replicate'); 
-subplot(2,2,3);
+subplot(2,2,2);
 imshow(K);
 title('Ket qua dung ham loc trung binh');
-%/////////// 
-for i=2:m-1
-    for j=2:n-1
-    Med(1) = A(i-1,j-1);
-    Med(2) =A(i-1,j) ;
-    Med(3) = A(i-1,j+1);
-    Med(4) = A(i,j-1);
-    Med(5) = A(i,j);
-    Med(6) = A(i,j+1);
-    Med(7) = A(i+1,j-1);
-    Med(8) = A(i+1,j);
-    Med(9) = A(i+1,j+1);
-    sum=0; 
-    for k=1:9
-        sum=sum+Med(k);
-    end
-    A(i,j) = (sum/9);
-    end
-end
-subplot(2,2,4);
-imshow(A);
-title('Ket qua dung code loc trung binh');
 ```
+### Kết Quả
+![](ss)
 ### 4. Lọc trung vị
 ```
-A = imread('noise-image.png') ; A=rgb2gray(A);
-A = im2double(A); subplot(2,2,1);
-
-imshow(A); title('Anh goc');
-[m n] = size(A); Med = [];
-%///////// K=medfilt2(A); subplot(2,2,3); imshow(K);
+A = imread('lena.png') ; 
+A=rgb2gray(A);
+A = im2double(A); 
+subplot(2,2,1);
+imshow(A); 
+title('Anh goc');
+[m n] = size(A); 
+Med = [];
+K=medfilt2(A); 
+subplot(2,2,2); 
+imshow(K);
 title('Ket qua dung ham loc trung vi');
-%////////// for i=2:m-1
-for j=2:n-1
-	Med(1) = A(i-1,j-1);
-	Med(2) =A(i-1,j) ;
-	Med(3) = A(i-1,j+1);
-	Med(4) = A(i,j-1);
-	Med(5) = A(i,j);
-	Med(6) = A(i,j+1);
-	Med(7) = A(i+1, j-1);
-	Med(8) = A(i+1,j);
-	Med(9) = A(i+1,j+1);
-A(i,j) = median(Med);
-end
-end subplot(2,2,4); imshow(A);
-title('Ket qua dung code loc Trung vi');
 ```
+### Kết Quả
+![](ss)
 ### 5. Lọc Rank
 ```
-I=imread('eight.tif'); % Read in image
+I=imread('eight.tif');
 Isp = imnoise(I,'salt & pepper'); % add 3% (0.03) salt and pepper noise
 Ig = imnoise(I,'gaussian',0.02); % add Gaussian noise (with 0.02 variance)
 I_m = ordfilt2(I,25,ones(5,5)); % apply to original image
 Isp_m = ordfilt2(Isp,25,ones(5,5)); % apply to salt and pepper image 
 Ig_m =ordfilt2(Ig,25,ones(5,5)); % apply tp gaussian image 
-subplot(1,3,1), imshow(I_m); % Display result image
+subplot(1,3,1), 
+imshow(I_m); % Hien thi Anh goc
 title('loc anh goc');
-subplot(1,3,2), imshow(Isp_m); % Display result image title('loc salt and pepper');
-subplot(1,3,3), imshow(Ig_m); % Display result image title('loc gaussian');
-
+subplot(1,3,2), 
+imshow(Isp_m); % Display result image 
+title('loc salt and pepper');
+subplot(1,3,3), 
+imshow(Ig_m); % Display result image 
+title('loc gaussian');
 ```
+### Kết Quả
+![](ss)
 ### 6. Lọc Thông Cao(High Pass Filtering)
 ```
-%Low pass Filtering
-
 clc;
-clear all; a=imread('pout.tif'); b=imnoise(a,'gaussian'); a=double(a); b=double(b);
+clear all; 
+a=imread('pout.tif'); 
+b=imnoise(a,'gaussian'); 
+a=double(a); 
+b=double(b);
 w=[1/9 1/9 1/9;1/9 1/9 1/9;1/9 1/9 1/9];
-[m n]=size(b); for i=2:1:m-1
-for j=2:1:n-1
-r(i,j)=b(i-1,j-1)*w(1)+b(i-1,j)*w(2)+ b(i-1,j+1)*w(3)+ b(i,j-1)*w(4)+
-b(i,j)*w(5)+ b(i,j+1)*w(6)+ b(i+1,j-1)*w(7)+ b(i+1,j)*w(8)+ b(i+1,j+1)*w(9) ;
+[m n]=size(b); 
+for i=2:1:m-1
+    for j=2:1:n-1
+    r(i,j)=b(i-1,j-1)*w(1)+b(i-1,j)*w(2)+ b(i-1,j+1)*w(3)+ b(i,j-1)*w(4)+b(i,j)*w(5)+ b(i,j+1)*w(6)+ b(i+1,j-1)*w(7)+ b(i+1,j)*w(8)+ b(i+1,j+1)*w(9) ;
+    end
 end
-end subplot(3,3,1) imshow(uint8(a));
-title('Original Image') subplot(3,3,2) imshow(uint8(b));
-title('Image with Gaussian Noise') subplot(3,3,3)
+subplot(3,3,1)
+imshow(uint8(a));
+title('Original Image') 
+subplot(3,3,2) 
+imshow(uint8(b));
+title('Image with Gaussian Noise') 
+subplot(3,3,3)
 imshow(uint8(r));
 title('Low Pass Filtered Image')
 ```
-### 7. Lọc Thông Thấp
+### 7. Lọc Thông Thấp(Low Pass Filtering)
 ```
 %High pass Filtering
-
 clc;
-clear all; a=imread('pout.tif'); b=imnoise(a,'gaussian'); a=double(a); b=double(b);
+clear all; 
+a=imread('pout.tif'); 
+b=imnoise(a,'gaussian'); 
+a=double(a); b=double(b);
 w=[-1/9 -1/9 -1/9;-1/9 -1/9 8/9;-1/9 -1/9 -1/9];
-[m n]=size(b); for i=2:1:m-1
-for j=2:1:n-1
-r(i,j)=b(i-1,j-1)*w(1)+b(i-1,j)*w(2)+ b(i-1,j+1)*w(3)+ b(i,j-1)*w(4)+
-b(i,j)*w(5)+ b(i,j+1)*w(6)+ b(i+1,j-1)*w(7)+ b(i+1,j)*w(8)+ b(i+1,j+1)*w(9) ;
+[m n]=size(b); 
+for i=2:1:m-1
+    for j=2:1:n-1
+        r(i,j)=b(i-1,j-1)*w(1)+b(i-1,j)*w(2)+ b(i-1,j+1)*w(3)+ b(i,j-1)*w(4)+b(i,j)*w(5)+ b(i,j+1)*w(6)+ b(i+1,j-1)*w(7)+ b(i+1,j)*w(8)+ b(i+1,j+1)*w(9) ;
+    end
 end
-end subplot(3,3,1) imshow(uint8(a));
-title('Original Image') subplot(3,3,2) imshow(uint8(b));
-title('Image with Gaussian Noise') subplot(3,3,3)
+subplot(3,3,1) 
+imshow(uint8(a));
+title('Original Image') 
+subplot(3,3,2) 
+mshow(uint8(b));
+title('Image with Gaussian Noise') 
+subplot(3,3,3)
 imshow(uint8(r));
 title('High Pass Filtered Image')
 ```
