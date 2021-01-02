@@ -21,7 +21,20 @@ Output = imsubtract(A, B); % subtract images
 
 subplot(1,3,3), imshow(Output); % Display result title('anh output');
 ```
-### 2. Ảnh xám, âm bản
+### 2. Ảnh Xám/Âm bản
+-	Ảnh Xám
+
+```
+RGB=imread('lena.png'); % Doc anh R=RGB(:,:,1);
+G=RGB(:,:,2);
+B=RGB(:,:,3);
+% CT chuyen anh sang anh xam 
+GRAY=0.299*R + 0.587*G + 0.114*B GRAY=0.299.*R + 0.587.*G + 0.114.*B;
+imshow(GRAY);
+```
+-	Ảnh Âm bản
+
+`Chưa có khi nào có gửi về zalo 0794943324`
 ### 3. Lọc trung bình (Code Tay)
 ### 4. Lọc trung vị
 ### 5. Lọc Rank
