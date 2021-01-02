@@ -194,3 +194,4 @@ title('Ket qua dung ham'); subplot(1,2,2) imshow(CMY);
 title('Ket qua dung code');
 ```
 ### 15. Chuyển CMY -> RGB
+`Chưa có ai có gửi về zalo 0794943324`
