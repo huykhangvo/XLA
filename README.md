@@ -44,15 +44,15 @@ imshow(K);
 title('Ket qua dung ham loc trung binh');
 %/////////// for i=2:m-1
 for j=2:n-1
-		Med(1) = A(i-1,j-1);
-		Med(2) =A(i-1,j) ;
-		Med(3) = A(i-1,j+1);
-		Med(4) = A(i,j-1);
-		Med(5) = A(i,j);
-		Med(6) = A(i,j+1);
-		Med(7) = A(i+1,j-1);
-		Med(8) = A(i+1,j);
-		Med(9) = A(i+1,j+1);
+	Med(1) = A(i-1,j-1);
+	Med(2) =A(i-1,j) ;
+	Med(3) = A(i-1,j+1);
+	Med(4) = A(i,j-1);
+	Med(5) = A(i,j);
+	Med(6) = A(i,j+1);
+	Med(7) = A(i+1,j-1);
+	Med(8) = A(i+1,j);
+	Med(9) = A(i+1,j+1);
 sum=0; for k=1:9
 sum=sum+Med(k);
 end
@@ -72,15 +72,15 @@ imshow(A); title('Anh goc');
 title('Ket qua dung ham loc trung vi');
 %////////// for i=2:m-1
 for j=2:n-1
-			Med(1) = A(i-1,j-1);
-			Med(2) =A(i-1,j) ;
-			Med(3) = A(i-1,j+1);
-			Med(4) = A(i,j-1);
-			Med(5) = A(i,j);
-			Med(6) = A(i,j+1);
-			Med(7) = A(i+1, j-1);
-			Med(8) = A(i+1,j);
-			Med(9) = A(i+1,j+1);
+	Med(1) = A(i-1,j-1);
+	Med(2) =A(i-1,j) ;
+	Med(3) = A(i-1,j+1);
+	Med(4) = A(i,j-1);
+	Med(5) = A(i,j);
+	Med(6) = A(i,j+1);
+	Med(7) = A(i+1, j-1);
+	Med(8) = A(i+1,j);
+	Med(9) = A(i+1,j+1);
 A(i,j) = median(Med);
 end
 end subplot(2,2,4); imshow(A);
