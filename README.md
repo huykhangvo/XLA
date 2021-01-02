@@ -32,10 +32,37 @@ B=RGB(:,:,3);
 GRAY=0.299*R + 0.587*G + 0.114*B GRAY=0.299.*R + 0.587.*G + 0.114.*B;
 imshow(GRAY);
 ```
--	Ảnh Âm bản
+-	Ảnh Âm Bản
 
 `Chưa có khi nào có gửi về zalo 0794943324`
 ### 3. Lọc trung bình (Code Tay)
+```
+A = imread('noise-image.png') ; subplot(2,2,1);
+imshow(A); title('Anh goc'); A = im2double(A); [m n] = size(A); Med = [];
+%/////////// H=fspecial('average'); K=imfilter(A,H,'replicate'); subplot(2,2,3);
+imshow(K);
+title('Ket qua dung ham loc trung binh');
+%/////////// for i=2:m-1
+for j=2:n-1
+Med(1) = A(i-1,j-1);
+Med(2) =A(i-1,j) ;
+Med(3) = A(i-1,j+1);
+Med(4) = A(i,j-1);
+Med(5) = A(i,j);
+Med(6) = A(i,j+1);
+```
+```
+Med(7) = A(i+1,j-1);
+Med(8) = A(i+1,j);
+Med(9) = A(i+1,j+1);
+sum=0; for k=1:9
+sum=sum+Med(k);
+end
+A(i,j) = (sum/9);
+end
+end subplot(2,2,4); imshow(A);
+title('Ket qua dung code loc trung binh');
+```
 ### 4. Lọc trung vị
 ### 5. Lọc Rank
 ### 6. Lọc Thông Cao
