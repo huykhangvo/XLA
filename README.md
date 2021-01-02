@@ -34,7 +34,7 @@ imshow(GRAY);
 ```
 -	Ảnh Âm Bản
 
-`Chưa có khi nào có gửi về zalo 0794943324`
+`Chưa có ai có gửi về zalo 0794943324`
 ### 3. Lọc trung bình (Code Tay)
 ```
 A = imread('noise-image.png') ; subplot(2,2,1);
@@ -60,10 +60,49 @@ A(i,j) = (sum/9);
 end
 end subplot(2,2,4); imshow(A);
 title('Ket qua dung code loc trung binh');
+
 ```
 ### 4. Lọc trung vị
+```
+A = imread('noise-image.png') ; A=rgb2gray(A);
+A = im2double(A); subplot(2,2,1);
+
+imshow(A); title('Anh goc');
+[m n] = size(A); Med = [];
+%///////// K=medfilt2(A); subplot(2,2,3); imshow(K);
+title('Ket qua dung ham loc trung vi');
+%////////// for i=2:m-1
+for j=2:n-1
+Med(1) = A(i-1,j-1);
+Med(2) =A(i-1,j) ;
+Med(3) = A(i-1,j+1);
+Med(4) = A(i,j-1);
+Med(5) = A(i,j);
+Med(6) = A(i,j+1);
+Med(7) = A(i+1, j-1);
+Med(8) = A(i+1,j);
+Med(9) = A(i+1,j+1);
+A(i,j) = median(Med);
+end
+end subplot(2,2,4); imshow(A);
+title('Ket qua dung code loc Trung vi');
+```
 ### 5. Lọc Rank
+`Chưa có ai có gửi về zalo 0794943324`
 ### 6. Lọc Thông Cao
+```
+I=imread('eight.tif'); % Read in image
+Isp = imnoise(I,'salt & pepper'); % add 3% (0.03) salt and pepper noise
+Ig = imnoise(I,'gaussian',0.02); % add Gaussian noise (with 0.02 variance)
+I_m = ordfilt2(I,25,ones(5,5)); % apply to original image
+Isp_m = ordfilt2(Isp,25,ones(5,5)); % apply to salt and pepper image 
+Ig_m =ordfilt2(Ig,25,ones(5,5)); % apply tp gaussian image 
+subplot(1,3,1), imshow(I_m); % Display result image
+title('loc anh goc');
+subplot(1,3,2), imshow(Isp_m); % Display result image title('loc salt and pepper');
+subplot(1,3,3), imshow(Ig_m); % Display result image title('loc gaussian');
+
+```
 ### 7. Lọc Thông Thấp
 ### 8. Lọc Max/Min
 ### 9. Chia ngưỡng ảnh
